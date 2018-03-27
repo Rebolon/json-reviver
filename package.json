@@ -1,0 +1,48 @@
+{
+  "name": "@rebolon/json-reviver",
+  "version": "0.0.1",
+  "description": "pattern to restore json object/string into real Entities. Even nested entities can be restored as expected.",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "node_modules/.bin/webpack",
+    "prepublishOnly": "npm run build",
+    "test": "karma start karma.conf.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rebolon/json-reviver.git"
+  },
+  "keywords": [
+    "json",
+    "parse",
+    "restore",
+    "entity",
+    "reviver"
+  ],
+  "author": "Benjamin Richard",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Rebolon/json-reviver/issues"
+  },
+  "homepage": "https://github.com/Rebolon/json-reviver#readme",
+  "devDependencies": {
+    "@types/jasmine": "~2.8.3",
+    "@types/jasminewd2": "~2.0.2",
+    "@types/node": "~6.0.60",
+    "jasmine-core": "~2.8.0",
+    "jasmine-spec-reporter": "~4.2.1",
+    "karma": "~2.0.0",
+    "karma-chrome-launcher": "~2.2.0",
+    "karma-jasmine": "~1.1.0",
+    "karma-jasmine-html-reporter": "^0.2.2",
+    "karma-typescript": "^3.0.12",
+    "ts-loader": "^4.1.0",
+    "ts-node": "~4.1.0",
+    "tslint": "~5.9.1",
+    "typescript": "~2.5.3",
+    "webpack": "^4.3.0",
+    "webpack-cli": "^2.0.13"
+  },
+  "dependencies": {}
+}
