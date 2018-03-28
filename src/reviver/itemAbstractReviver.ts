@@ -1,6 +1,6 @@
 import {ReviverInterface} from './reviverInterface'
 import {EntityInterface} from "../entityInterface"
-import {accessor} from "../accessor";
+import {Accessor} from "../accessor";
 
 const registry = []
 const propertyPath: Array<any> = []
@@ -128,7 +128,7 @@ export abstract class ItemAbstractReviver implements ReviverInterface {
                 continue
             }
 
-            accessor(prop, entity, json)
+            Accessor(prop, entity, json)
         }
 
         return entity
@@ -175,7 +175,7 @@ export abstract class ItemAbstractReviver implements ReviverInterface {
                     }
                 } else {
                     try {
-                        accessor(prop, entity, relation)
+                        Accessor(prop, entity, relation)
                     } catch (e) {
                         // @todo manage this with a log + a report to user with explanation on what have not been processed
                     }
@@ -219,7 +219,7 @@ export abstract class ItemAbstractReviver implements ReviverInterface {
                 entity[methodName](relationRegistered)
             } else {
                 try {
-                    accessor(prop, entity, relationRegistered)
+                    Accessor(prop, entity, relationRegistered)
                 } catch (e) {
                     // @todo manage this with a log + a report to user with explanation on what have not been processed
                 }

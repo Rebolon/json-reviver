@@ -1,7 +1,8 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "outDir": "./dist/out-tsc",
+    "sourceRoot": "./src/",
+    "outDir": "./dist/",
     "sourceMap": true,
     "declaration": false,
     "moduleResolution": "node",
@@ -15,6 +16,6 @@
       "es2017",
       "dom"
     ],
-    "allowJs": true
+    "allowJs": false
   }
 }

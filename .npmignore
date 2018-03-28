@@ -1,1 +1,5 @@
-**.ts
+coverage/
+dist/tests
+tests
+src
+karma.conf.js

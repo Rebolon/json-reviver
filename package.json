@@ -1,11 +1,11 @@
 {
   "name": "@rebolon/json-reviver",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "pattern to restore json object/string into real Entities. Even nested entities can be restored as expected.",
-  "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "main": "./dist/src/index.js",
+  "types": "./dist/src/index.d.ts",
   "scripts": {
-    "build": "node_modules/.bin/webpack",
+    "build": "node_modules/.bin/tsc -d true --outDir dist/ -t ES5",
     "prepublishOnly": "npm run build",
     "test": "karma start karma.conf.js"
   },
@@ -18,7 +18,9 @@
     "parse",
     "restore",
     "entity",
-    "reviver"
+    "reviver",
+    "localStorage",
+    "api"
   ],
   "author": "Benjamin Richard",
   "license": "MIT",
@@ -40,9 +42,7 @@
     "ts-loader": "^4.1.0",
     "ts-node": "~4.1.0",
     "tslint": "~5.9.1",
-    "typescript": "~2.5.3",
-    "webpack": "^4.3.0",
-    "webpack-cli": "^2.0.13"
+    "typescript": "~2.5.3"
   },
   "dependencies": {}
 }

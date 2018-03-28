@@ -3,7 +3,7 @@ import {ItemAbstractReviver} from "../../../../src/reviver/itemAbstractReviver";
 import {AuthorsReviver} from "./authorsReviver";
 import {SerieReviver} from "./serieReviver";
 import {EditorsReviver} from "./editorsReviver";
-import {accessor} from "../../../../src/accessor";
+import {Accessor} from "../../../../src/accessor";
 
 export class BookReviver extends ItemAbstractReviver
 {
@@ -84,14 +84,14 @@ export class BookReviver extends ItemAbstractReviver
                 'converter': this.authorsReviver,
                 'setter': 'addAuthor',
                 'cb': function (relation, entity) {
-                    accessor('book', relation, entity)
+                    Accessor('book', relation, entity)
                 },
             },
             'editors': {
                 'converter': this.editorsReviver,
                 'setter': 'addEdition',
                 'cb': function (relation, entity) {
-                    accessor('book', relation, entity)
+                    Accessor('book', relation, entity)
                 },
             },
         }
