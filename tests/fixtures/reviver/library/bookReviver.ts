@@ -81,14 +81,14 @@ export class BookReviver extends ItemAbstractReviver
         // that's why i don't add reviews here
         return {
             'authors': {
-                'converter': this.authorsReviver,
+                'reviver': this.authorsReviver,
                 'setter': 'addAuthor',
                 'cb': function (relation, entity) {
                     Accessor('book', relation, entity)
                 },
             },
             'editors': {
-                'converter': this.editorsReviver,
+                'reviver': this.editorsReviver,
                 'setter': 'addEdition',
                 'cb': function (relation, entity) {
                     Accessor('book', relation, entity)
@@ -106,7 +106,7 @@ export class BookReviver extends ItemAbstractReviver
     {
         return {
             'serie': {
-                'converter': this.serieReviver,
+                'reviver': this.serieReviver,
                 'registryKey': 'serie',
             },
         }

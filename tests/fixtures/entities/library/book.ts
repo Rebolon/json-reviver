@@ -13,10 +13,6 @@ export class Book implements EntityInterface {
     authors: Array<Authors>
     serie?: Serie
 
-    getOwnProps() {
-        return ['title', 'description', 'indexInSerie', ]
-    }
-
     addEdition(edition: Editors) {
         if (typeof this.editors == 'undefined') {
             this.editors = []

@@ -76,11 +76,11 @@ export class AuthorsReviver extends ListAbstractReviver
     {
         return {
             'role': {
-                'converter': this.jobReviver,
+                'reviver': this.jobReviver,
                 'registryKey': 'role'
             },
             'author': {
-                'converter': this.authorReviver,
+                'reviver': this.authorReviver,
                 'registryKey': 'author'
             }
         }

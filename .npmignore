@@ -1,5 +1,4 @@
 coverage/
-dist/tests
-tests
-src
+dist/
+tests/
 karma.conf.js

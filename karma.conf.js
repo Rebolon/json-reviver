@@ -12,8 +12,8 @@ module.exports = function (config) {
     ],
 
     preprocessors: {
-        "src/**/*.ts": ["karma-typescript", "coverage"],
-        "tests/**/*.ts": ["karma-typescript"],
+        "src/**/!(*.d).ts": ["karma-typescript", "coverage"],
+        "tests/**/!(*.d).ts": ["karma-typescript"],
     },
 
     plugins: [
@@ -40,6 +40,9 @@ module.exports = function (config) {
     karmaTypescriptConfig: {
         compilerOptions: {
             allowJs: true,
+        },
+        coverageOptions: {
+            exclude: [/(\/test\/.*|\.d)\.ts/i]
         },
     },
 

@@ -1,49 +1,41 @@
-import {EntityInterface} from "../entityInterface";
-
-export interface ReviverInterface
-{
+import { EntityInterface } from "../entityInterface";
+export interface ReviverInterface {
     /**
      *
      * @returns {string}
      */
-    getNodeName(): string
-
+    getNodeName(): string;
     /**
      *
      * @returns EntityInterface
      */
-    getNewEntity(): EntityInterface
-
+    getNewEntity(): EntityInterface;
     /**
      * @return string
      */
-    getIdProperty(): string
-
+    getIdProperty(): string;
     /**
      * List of accessible properties (int/string/date string converted into date from it's setter per exemple/date/boolean/...)
      *
      * @return array
      */
-    getEzPropsName(): Array<string>
-
+    getEzPropsName(): Array<string>;
     /**
      * List of properties that contain sub-entities in a Many-To-Many ways
      *
      * @return array
      */
-    getManyRelPropsName(): Object
-
+    getManyRelPropsName(): Object;
     /**
      * List of properties that contain sub-entities in a Many-To-One way
      *
      * @return array
      */
-    getOneRelPropsName(): Object
-
+    getOneRelPropsName(): Object;
     /**
      * @param jsonOrArray
      * @param propertyPath
      * @return mixed array|EntityInterface
      */
-    initFromJson(jsonOrArray, propertyPath)
+    initFromJson(jsonOrArray: any, propertyPath: any): any;
 }

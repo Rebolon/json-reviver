@@ -71,7 +71,7 @@ export class EditorsReviver extends ListAbstractReviver
     {
         return {
             'editor': {
-                'converter': this.editorReviver,
+                'reviver': this.editorReviver,
                 'registryKey': 'editor'
             }
         }

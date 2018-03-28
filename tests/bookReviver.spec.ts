@@ -7,7 +7,7 @@ import {SerieReviver} from "./fixtures/reviver/library/serieReviver"
 import {AuthorReviver} from "./fixtures/reviver/library/authorReviver"
 
 /**
- * @var string allow to test a correct HTTP Post with the ability of the ParamConverter to de-duplicate entity like for author in this sample
+ * @var string allow to test a correct Json string/object with the ability of the Reviver to de-duplicate entity like for author in this sample
  */
 const bodyOk = JSON.stringify(
 {
@@ -37,7 +37,7 @@ const bodyOk = JSON.stringify(
 )
 
 /**
- * @var string to test that the ParamConverter are abled to reuse entity from database
+ * @var string to test that the Reviver are abled to reuse entity from API or custom store (in future development)
  */
 const bodyOkWithExistingEntities = JSON.stringify(
     {
@@ -49,7 +49,7 @@ const bodyOkWithExistingEntities = JSON.stringify(
 )
 
 /**
- * @var string to test that the ParamConverter are abled to reuse entity from database
+ * @var string to test that the Reviver are abled to reuse entity from API or custom store (in future development)
  */
 const bodyOkWithExistingEntitiesWithFullProps = JSON.stringify(
     {
@@ -81,9 +81,9 @@ describe('BookReviver', () => {
   it('should create all entities except for authors where there should be 2 instead of 3', () => {
       const content = JSON.parse(bodyOk)
 
-      const bookConverter = getBookConverter().bookReviver
+      const bookReviver = getBookReviver().bookReviver
 
-      const book: any = bookConverter.main(content.book)
+      const book: any = bookReviver.main(content.book)
 
       expect(book.title).toEqual(content.book.title)
       expect( book.serie.name).toEqual(content.book.serie.name)
@@ -102,9 +102,9 @@ describe('BookReviver', () => {
 })
 
 /**
- * @return BookConverter|void
+ * @return BookReviver|void
  */
-function getBookConverter()
+function getBookReviver()
 {
     const authorReviver = new AuthorReviver()
     const editorReviver = new EditorReviver()

@@ -1,16 +1,16 @@
-import {ItemAbstractReviver} from "./itemAbstractReviver";
+import {AbstractReviver} from "./AbstractReviver";
 
 /**
  * @todo there is maybe a way to mutualize the 3 methods buildWith*
  *
  * Class ListAbstractReviver
  */
-export abstract class ListAbstractReviver extends ItemAbstractReviver
+export abstract class ListAbstractReviver extends AbstractReviver
 {
     /**
      * @inheritdoc
      */
-    public initFromRequest(jsonOrArray, propertyPathToAdd)
+    public initFromJson(jsonOrArray, propertyPathToAdd)
     {
         super.getPropertyPathContent().push(propertyPathToAdd)
 
@@ -32,7 +32,7 @@ export abstract class ListAbstractReviver extends ItemAbstractReviver
                 super.getPropertyPathContent().pop()
             }
         } catch (e) {
-            throw new Error(`Wrong parameter to create new ${super.getNodeName()}, have a look at node ${super.getPropertyPath()}`)
+            throw new Error(`Wrong parameter to create new ${this.getNodeName()}, have a look at node ${super.getPropertyPath()}`)
         } finally {
             super.getPropertyPathContent().pop()
         }
