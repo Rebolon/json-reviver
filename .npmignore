@@ -1,4 +1,4 @@
 coverage/
-dist/
+src/
 tests/
 karma.conf.js
