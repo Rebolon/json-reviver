@@ -142,6 +142,19 @@ const book = bookReviver.main(myJsonStringOrObject)
 
 Run `npm run test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
+## Npm publication
+
+With typescript package it appears that *.ts files should not be published. In fact we have to transpile *.ts into 
+javascript files. During this process we also need to generate module files (the famous *.d.ts). Those files will be
+published and it will allow typescript compiler to use the *.js file finely. 
+
+To do this:
+ * in tsconfig.json: set the following compilerOptions
+    * "declaration": true 
+    * "declarationDir": "./dist"
+ * in package.json: add "prepublishOnly": "node_modules/.bin/tsc -p ./"
+ * then, just run npm publish
+
 ## Todo
 
 * [ ] For sub-entities that are represented only by an ID or an IRI, we should be able to retreive the full entity by calling back the API (maybe use rxjs to return a subscription, and let the developper do what he wants)

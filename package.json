@@ -1,11 +1,11 @@
 {
   "name": "@rebolon/json-reviver",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "pattern to restore json object/string into real Entities. Even nested entities can be restored as expected.",
-  "main": "./dist/src/index.js",
-  "types": "./dist/src/index.d.ts",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "scripts": {
-    "build": "node_modules/.bin/tsc -d true -t ES5",
+    "build": "node_modules/.bin/tsc -p ./",
     "prepublishOnly": "npm run build",
     "test": "karma start karma.conf.js"
   },
@@ -32,6 +32,7 @@
     "@types/jasmine": "~2.8.3",
     "@types/jasminewd2": "~2.0.2",
     "@types/node": "~6.0.60",
+    "codelyzer": "^4.2.1",
     "jasmine-core": "~2.8.0",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~2.0.0",

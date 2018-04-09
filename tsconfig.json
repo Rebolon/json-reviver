@@ -1,9 +1,12 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "pretty": true,
+    "declarationDir": "./dist",
     "sourceRoot": "./src/",
+    "outDir": "./dist/",
     "sourceMap": true,
-    "declaration": false,
+    "declaration": true,
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
@@ -16,5 +19,11 @@
       "dom"
     ],
     "allowJs": false
-  }
+  },
+  "exclude": [
+    "coverage",
+    "node_modules",
+    "dist/",
+    "tests/"
+  ]
 }

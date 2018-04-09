@@ -86,7 +86,7 @@ describe('BookReviver', () => {
       const book: any = bookReviver.main(content.book)
 
       expect(book.title).toEqual(content.book.title)
-      expect( book.serie.name).toEqual(content.book.serie.name)
+      expect(book.serie.name).toEqual(content.book.serie.name)
       expect(book.authors.length).toEqual(3)
 
       expect(book.authors[0].author.firstname).toEqual(content.book.authors[0].author.firstname)
