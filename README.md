@@ -144,7 +144,7 @@ Run `npm run test` to execute the unit tests via [Karma](https://karma-runner.gi
 
 ## Npm publication
 
-With typescript package it appears that *.ts files should not be published. In fact we have to transpile *.ts into 
+With typescript package it appears that *.ts files should not be published (more info here:https://ljn.io/posts/publishing-typescript-projects-with-npm/). In fact we have to transpile *.ts into 
 javascript files. During this process we also need to generate module files (the famous *.d.ts). Those files will be
 published and it will allow typescript compiler to use the *.js file finely. 
 
