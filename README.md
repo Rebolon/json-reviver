@@ -1,5 +1,13 @@
 # Json Reviver
 
+<p align="center">
+
+  [![Build Status](https://scrutinizer-ci.com/g/Rebolon/json-reviver/badges/build.png?b=master)](https://scrutinizer-ci.com/g/Rebolon/json-reviver/build-status/master)
+  [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/Rebolon/php-sf-flex-webpack-encore-vuejs/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/Rebolon/php-sf-flex-webpack-encore-vuejs/badges/quality-score.png?b=master)
+  [![Known Vulnerabilities](https://snyk.io/test/github/rebolon/json-reviver/badge.svg?targetFile=package.json)](https://snyk.io/test/github/rebolon/json-reviver?targetFile=package.json)
+
+</p>
+
 When you work on a Frontend application with an API, you usually receive JSON string in HTTP. This is a pain to get back this JSON into real entities.
 And it's a worst pain when this JSON contain nested entities.
 This happens also when you try to restore JSON from LocalStorage !
