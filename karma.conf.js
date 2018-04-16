@@ -21,16 +21,17 @@ module.exports = function (config) {
       require('karma-jasmine'),
       require('karma-chrome-launcher'),
       require('karma-jasmine-html-reporter'),
-      require('karma-coverage')
+      require('karma-coverage'),
+      require('karma-coverage-istanbul-reporter')
     ],
     client:{
       clearContext: false // leave Jasmine Spec Runner output visible in browser
     },
     coverageIstanbulReporter: {
-      reports: [ 'html', 'lcovonly' ],
+      reports: [ 'html', 'lcovonly', 'clover' ],
       fixWebpackSourcePaths: true
     },
-    reporters: ['progress', 'kjhtml', 'coverage', 'karma-typescript'],
+    reporters: ['progress', 'kjhtml', 'coverage-istanbul', 'karma-typescript'],
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,

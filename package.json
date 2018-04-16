@@ -7,7 +7,8 @@
   "scripts": {
     "build": "node_modules/.bin/tsc -p ./",
     "prepublishOnly": "npm run build",
-    "test": "karma start karma.conf.js"
+    "test": "karma start karma.conf.js",
+    "test-ci": "karma start karma.conf.js --auto-watch --log-level=error --single-run"
   },
   "repository": {
     "type": "git",
@@ -37,6 +38,7 @@
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~2.0.0",
     "karma-chrome-launcher": "~2.2.0",
+    "karma-coverage-istanbul-reporter": "^1.4.2",
     "karma-jasmine": "~1.1.0",
     "karma-jasmine-html-reporter": "^0.2.2",
     "karma-typescript": "^3.0.12",
