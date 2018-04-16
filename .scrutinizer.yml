@@ -1,0 +1,17 @@
+build:
+    environment:
+        redis: false
+        postgresql: false
+        node:
+            version: '8.10.0'
+    nodes:
+        analysis:
+            tests:
+                override:
+                    -
+                        command: 'npm run test-ci'
+                        coverage:
+                            file: 'coverage/clover.xml'
+                            format: 'clover'
+checks:
+    javascript: true
