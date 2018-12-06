@@ -83,7 +83,7 @@ describe('BookReviver', () => {
 
       const bookReviver = getBookReviver().bookReviver
 
-      const book: any = bookReviver.main(content.book)
+      const book: any = bookReviver.parse(content.book)
 
       expect(book.title).toEqual(content.book.title)
       expect(book.serie.name).toEqual(content.book.serie.name)
@@ -98,6 +98,18 @@ describe('BookReviver', () => {
       // check that there is only 2 different Authors
       expect(book.authors[1]).toEqual(book.authors[0])
       expect(book.authors[2]).not.toEqual(book.authors[1])
+  })
+
+  fit('should restore object to Json without circular reference', () => {
+      const content = JSON.parse(bodyOk)
+
+      const bookReviver = getBookReviver().bookReviver
+
+      const book: any = bookReviver.parse(content.book)
+
+      const json: any = bookReviver.stringify(book)
+
+      expect(json).toEqual(bodyOk)
   })
 })
 

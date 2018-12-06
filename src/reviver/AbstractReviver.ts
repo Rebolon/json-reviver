@@ -1,6 +1,7 @@
 import {ReviverInterface} from './reviverInterface'
 import {EntityInterface} from "../entityInterface"
 import {Accessor} from "../accessor";
+import * as CircularJSON from "circular-json";
 
 const registry = []
 const propertyPath: Array<any> = []
@@ -18,10 +19,10 @@ export abstract class AbstractReviver implements ReviverInterface {
     protected idProperty = 'id'
 
     /**
-     * main entry point
+     * main entry point to parse json
      * {@inheritdoc}
      */
-    main(content) {
+    parse(content) {
         if (!content) {
             return false
         }
@@ -30,6 +31,25 @@ export abstract class AbstractReviver implements ReviverInterface {
         try {
             const json = typeof content == 'string' ? JSON.parse(content) : content
             raw = this.initFromJson(json, this.getNodeName())
+        } catch (e) {
+            throw e
+        }
+
+        return raw
+    }
+
+    /**
+     * main entry point to stringyfy object
+     * {@inheritdoc}
+     */
+    public stringify(object) {
+        if (!object) {
+            return false
+        }
+
+        let raw
+        try {
+            raw = CircularJSON.stringify(object)
         } catch (e) {
             throw e
         }
