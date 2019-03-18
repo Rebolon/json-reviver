@@ -95,7 +95,6 @@ export abstract class AbstractReviver implements ReviverInterface {
         const objectHasRootNode = (item, reviverNodeName) => item.hasOwnProperty(reviverNodeName);
 
         if (typeof json === "object" && typeof json.forEach !== "undefined") {
-            debugger
             const entities = []
 
             json.forEach((item) => {

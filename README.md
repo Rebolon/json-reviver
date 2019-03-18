@@ -148,6 +148,19 @@ const book = bookReviver.main(myJsonStringOrObject)
 
 // you can now use all feature of Book entity from your `book`  constant
 ```
+
+You can also restore array of object like this (root node `book` is not mandatory):
+```
+[{
+    "book": {
+        "title": "Zombies in western culture"
+    }
+},
+{   "book": {
+         "title": "Another book with Zombies in western culture"
+     }
+ ]
+```
 ## Running unit tests
 
 Run `npm run test` to execute the unit tests via [Karma](https://karma-runner.github.io).

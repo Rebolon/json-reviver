@@ -1,6 +1,6 @@
 {
   "name": "@rebolon/json-reviver",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "pattern to restore json object/string into real Entities. Even nested entities can be restored as expected.",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -48,7 +48,6 @@
     "typescript": "~2.5.3"
   },
   "dependencies": {
-    "flatted": "^2.0.0",
-    "json-extensions": "https://github.com/douglascrockford/JSON-js"
+    "flatted": "^2.0.0"
   }
 }
