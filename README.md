@@ -1,4 +1,6 @@
 # Json Reviver
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FRebolon%2Fjson-reviver.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FRebolon%2Fjson-reviver?ref=badge_shield)
+
 
 <p align="center">
 
@@ -166,3 +168,7 @@ To do this:
 ## Todo
 
 * [ ] For sub-entities that are represented only by an ID or an IRI, we should be able to retreive the full entity by calling back the API (maybe use rxjs to return a subscription, and let the developper do what he wants)
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FRebolon%2Fjson-reviver.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2FRebolon%2Fjson-reviver?ref=badge_large)
