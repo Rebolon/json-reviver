@@ -1,6 +1,7 @@
 import {ReviverInterface} from './reviverInterface'
 import {EntityInterface} from "../entityInterface"
 import {Accessor} from "../accessor";
+import {stringify} from "flatted";
 
 const registry = []
 const propertyPath: Array<any> = []
@@ -18,10 +19,10 @@ export abstract class AbstractReviver implements ReviverInterface {
     protected idProperty = 'id'
 
     /**
-     * main entry point
+     * main entry point to parse json
      * {@inheritdoc}
      */
-    main(content) {
+    parse(content) {
         if (!content) {
             return false
         }
@@ -30,6 +31,35 @@ export abstract class AbstractReviver implements ReviverInterface {
         try {
             const json = typeof content == 'string' ? JSON.parse(content) : content
             raw = this.initFromJson(json, this.getNodeName())
+        } catch (e) {
+            throw e
+        }
+
+        return raw
+    }
+
+    /**
+     * main entry point to stringyfy object
+     * {@inheritdoc}
+     */
+    public stringify(object) {
+        if (!object) {
+            return false
+        }
+
+        let raw
+        try {
+            raw = stringify(object, (key: string, value: any) => {
+                // prevent stringify item that are the same nodeName
+                if (key === this.getNodeName()
+                    // prevent stringify empty node
+                    || value === undefined
+                    || value === "") {
+                    return undefined
+                }
+
+                return value
+            })
         } catch (e) {
             throw e
         }
@@ -51,13 +81,42 @@ export abstract class AbstractReviver implements ReviverInterface {
      * @throws \TypeError
      */
     protected buildEntity(json) {
-        const entity = this.getNewEntity()
+        const build = (json) => {
+            const entity = this.getNewEntity()
 
-        this.buildWithEzProps(json, entity)
-        this.buildWithManyRelProps(json, entity)
-        this.buildWithOneRelProps(json, entity)
+            this.buildWithEzProps(json, entity)
+            this.buildWithManyRelProps(json, entity)
+            this.buildWithOneRelProps(json, entity)
 
-        return entity
+            return entity
+        }
+
+        const isOnRootPath = (currentPropertyPath, reviverNodeName) => currentPropertyPath === reviverNodeName;
+        const objectHasRootNode = (item, reviverNodeName) => item.hasOwnProperty(reviverNodeName);
+
+        if (typeof json === "object" && typeof json.forEach !== "undefined") {
+            debugger
+            const entities = []
+
+            json.forEach((item) => {
+                if (isOnRootPath(this.getPropertyPath(), this.getNodeName())
+                    && objectHasRootNode(item, this.getNodeName())) {
+                    entities.push(build(item[this.getNodeName()]))
+                } else {
+                    entities.push(build(item))
+                }
+
+            })
+
+            return entities
+        }
+
+        if (isOnRootPath(this.getPropertyPath(), this.getNodeName())
+            && objectHasRootNode(json, this.getNodeName())) {
+            return build(json[this.getNodeName()])
+        } else {
+            return build(json)
+        }
     }
 
     /**
